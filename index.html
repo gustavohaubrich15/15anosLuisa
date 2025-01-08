@@ -228,6 +228,36 @@
             }
         }
 
+        @media (max-height: 670px) {
+            .small-device-height {
+                height: 170px;
+            }
+            .l-font{
+                line-height: 100px;
+                font-size: 130px;
+            }
+            .l{
+                position: absolute;
+                height: 88px;
+                width: 88px;
+                top: 15px;
+                left: 164px;
+                font-size: 0px;
+            }
+            .luisa{
+                font-size: 62px;
+            }
+            .idade-font{
+                font-size: 32px;
+            }
+            .scale-small-device{
+                scale: 0.8;
+            }
+            .info-small-device{
+                padding-top: 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -297,7 +327,7 @@
             <p>Caso queira me presentar sinta-se à vontade para fazer isso através do Pix abaixo:</p>
           <h3 style="color: #072456;">Chave PIX - CPF</h3>
           <input style="width: 80%;" type="text" class="pix-code" value="047.755.160-27" id="pixInput" readonly>
-          <button class="btn-copy" onclick="copyPIX()">Copiar Código</button>
+          <button class="btn-copy" onclick="copyPIX()">Copiar Chave</button>
           <button class="btn-copy" onclick="closeModal()">Fechar</button>
         </div>
     </div>
@@ -305,21 +335,24 @@
 
 <script>
 
+    var button = document.querySelector(".btn-copy");
 
     function openModal() {
       document.getElementById("pixModal").style.display = "flex";
     }
     function closeModal() {
       document.getElementById("pixModal").style.display = "none";
+      button.textContent = "Copiar Chave";
+      button.style.backgroundColor = "#072456";
     }
 
     function copyPIX() {
       var copyText = document.getElementById("pixInput");
       copyText.select();
       copyText.setSelectionRange(0, 99999); 
-
       document.execCommand("copy");
-      
+      button.textContent = "🔗 Copiado!";
+      button.style.backgroundColor = "#1857c3";
     }
   </script>
 </html>
